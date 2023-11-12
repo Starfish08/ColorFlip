@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QCheckBox
 from PIL import Image, ImageOps
 import sys
 import os
+Color = "RGB"
 
 class ApplicationColorFlip:
     def __init__(self):
@@ -28,13 +29,23 @@ class ApplicationColorFlip:
         self.questionSave.move(0, 75)
 
         self.reponseSave.setFixedWidth(300)
+        self.reponseSave.adjustSize()
         self.reponseSave.move(0, 102)
         self.reponseSave.setPlaceholderText("/Chemin/Vers/MonImageInverse.png")
+
+        self.flipCheckBox = QCheckBox("Convertir en monochrome", self.fenetre)
+        self.flipCheckBox.adjustSize()
+        self.flipCheckBox.move(0, 130)
+        self.flipCheckBox.setChecked(False)  # Par défaut, la case à cocher est désactivée
+        if self.flipCheckBox.isChecked():
+            Color = "L"
+        else:
+            Color = "RGB"
 
         self.bouton = QtWidgets.QPushButton(self.fenetre)
         self.bouton.setText("Flip!")
         self.bouton.clicked.connect(self.renverser_couleurs)
-        self.bouton.move(100, 160)
+        self.bouton.move(100, 170)
 
         # Connexion pour remplir automatiquement le champ de sauvegarde
         self.reponseAcces.textChanged.connect(self.remplir_champ_enregistrement)
@@ -45,7 +56,7 @@ class ApplicationColorFlip:
     def renverser_couleurs(self):
         cheminAcces = self.reponseAcces.text()
         cheminEnregistrement = self.reponseSave.text()
-        im = Image.open(cheminAcces).convert(RGB)
+        im = Image.open(cheminAcces).convert(Color)
         im_inverse = ImageOps.invert(im)
         im_inverse.save(cheminEnregistrement, quality=95)
 
