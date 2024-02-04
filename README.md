@@ -1,16 +1,16 @@
 # ColorFlip
-**Color flip** est un petit logiciel simple et épuré qui permet d'inverser les couleurs d'une image,    
+**Colorflip** est un petit logiciel simple et épuré qui permet d'inverser les couleurs d'une image,    
 
 ![fenetre](https://github.com/Starfish08/ColorFlip/assets/106678916/eda6013e-9838-4825-b5df-c36edb15a882)
 
 
 
 
-## Fonctionnalitées  
-- Invertion des couleurs 
-- Convertion en monochrome
+## Fonctionnalités  
+- Inversion des couleurs 
+- Conversion en monochrome
 
-**(par exemple pour faire des négatifs photos ou des cyanotypes)**
+**Par exemple pour faire des négatifs photos ou des cyanotypes**
 
 
 ## Exemple  
@@ -24,7 +24,7 @@
 
 
 ## Installation  
-- L'installation est assez simle, vous devez bien sûr avoir python installé sur votre appareil, et vous devez installer les requierments, soit un par un, soit tous d'un coup avec pip :   
+- L'installation est assez simple, vous devez bien sûr avoir python installé sur votre appareil, et vous devez installer les requierments, soit un par un, soit tous d'un coup avec pip :   
 `pip install -r requirements.txt`  
 - ensuite lancez le programme avec :   
 `python ColorFlip.py`
@@ -36,12 +36,12 @@ L'application est programmé en python et l'interface graphique est basée sur p
 
 
 ## Ameliorations à venir  
-- Possiblilité d'ignorer des couleurs
+- Possibilité d'ignorer des couleurs
 - Prévisualisation
 - Et bien plus encore!
 N'hésitez pas à contribuer à sa création et à me donner vos idées d'amélioration!  
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc4NTQ0NzIxXX0=
+eyJoaXN0b3J5IjpbLTEzOTk3OTY0NjcsMTc4NTQ0NzIxXX0=
 -->
