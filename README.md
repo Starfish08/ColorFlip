@@ -42,3 +42,6 @@ L'application est programmé en python et l'interface graphique est basée sur p
 N'hésitez pas à contribuer à sa création et à me donner vos idées d'amélioration!  
 
 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTc4NTQ0NzIxXX0=
+-->
