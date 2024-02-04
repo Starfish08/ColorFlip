@@ -1,15 +1,16 @@
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow, QCheckBox
+from PyQt5.QtWidgets import QApplication, QMainWindow, QCheckBox, QLineEdit, QPushButton, QFileDialog
 from PIL import Image, ImageOps
 import sys
 import os
+
 Color = "RGB"
 
 class ApplicationColorFlip:
     def __init__(self):
         self.app = QApplication(sys.argv)
         self.fenetre = QMainWindow()
-        self.fenetre.setGeometry(400, 400, 450, 200)
+        self.fenetre.setGeometry(400, 400, 500, 200)
         self.fenetre.setWindowTitle("Color Flip!")
 
         self.questionAcces = QtWidgets.QLabel(self.fenetre)
@@ -23,6 +24,11 @@ class ApplicationColorFlip:
         self.reponseAcces.setFixedWidth(300)
         self.reponseAcces.move(0, 35)
         self.reponseAcces.setPlaceholderText("/Chemin/Vers/MonImage.png")
+
+        self.boutonAcces = QPushButton('⛘', self.fenetre)
+        self.boutonAcces.setFixedWidth(30)
+        self.boutonAcces.move(305, 35)
+        self.boutonAcces.clicked.connect(self.ouvrir_dialogue_acces)
 
         self.questionSave.setText("Où souhaitez-vous enregistrer l'image inversée ?")
         self.questionSave.adjustSize()
@@ -42,7 +48,7 @@ class ApplicationColorFlip:
         else:
             Color = "RGB"
 
-        self.bouton = QtWidgets.QPushButton(self.fenetre)
+        self.bouton = QPushButton(self.fenetre)
         self.bouton.setText("Flip!")
         self.bouton.clicked.connect(self.renverser_couleurs)
         self.bouton.move(100, 170)
@@ -53,18 +59,26 @@ class ApplicationColorFlip:
         self.fenetre.show()
         sys.exit(self.app.exec_())
 
+    def ouvrir_dialogue_acces(self):
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        chemin_acces, _ = QFileDialog.getOpenFileName(self.fenetre, "Ouvrir Fichier", "", "Images (*.png *.jpg *.bmp *.gif);;Tous les fichiers (*)", options=options)
+
+        if chemin_acces:
+            self.reponseAcces.setText(chemin_acces)
+
     def renverser_couleurs(self):
-        cheminAcces = self.reponseAcces.text()
-        cheminEnregistrement = self.reponseSave.text()
-        im = Image.open(cheminAcces).convert(Color)
+        chemin_acces = self.reponseAcces.text()
+        chemin_enregistrement = self.reponseSave.text()
+        im = Image.open(chemin_acces).convert(Color)
         im_inverse = ImageOps.invert(im)
-        im_inverse.save(cheminEnregistrement, quality=95)
+        im_inverse.save(chemin_enregistrement, quality=95)
 
     def remplir_champ_enregistrement(self):
-        cheminAcces = self.reponseAcces.text()
-        nom_fichier = os.path.basename(cheminAcces)
+        chemin_acces = self.reponseAcces.text()
+        nom_fichier = os.path.basename(chemin_acces)
         nom_fichier_sans_extension, extension = os.path.splitext(nom_fichier)
-        chemin_enregistrement = os.path.dirname(cheminAcces)
+        chemin_enregistrement = os.path.dirname(chemin_acces)
         chemin_enregistrement = os.path.join(chemin_enregistrement, nom_fichier_sans_extension + "_Flip" + extension)
         self.reponseSave.setText(chemin_enregistrement)
 
