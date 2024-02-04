@@ -1,21 +1,27 @@
 # ColorFlip
 **Color flip** est un petit logiciel simple et épuré qui permet d'inverser les couleurs d'une image,    
 
-![fenetre](https://github.com/Starfish08/ColorFlip/assets/106678916/9c411f12-e4a9-45ac-953e-5530a83099fb)  
+![fenetre](https://github.com/Starfish08/ColorFlip/assets/106678916/eda6013e-9838-4825-b5df-c36edb15a882)
+
+
 
 
 ## Fonctionnalitées  
-- Invertion des couleurs (par ex pour faire des négatifs photos ou des cyanotypes)
+- Invertion des couleurs 
 - Convertion en monochrome
+
+**(par exemple pour faire des négatifs photos ou des cyanotypes)**
 
 
 ## Exemple  
 **Avant :**  
-![avant](https://github.com/Starfish08/ColorFlip/assets/106678916/9f2ee5b5-6d4e-486a-bf65-597d449c028a)  
+![Avant](https://github.com/Starfish08/ColorFlip/assets/106678916/7e2c3431-91e4-4a92-a72e-729352b758f5)
+ 
 
 
 **Après :**  
-![apres](https://github.com/Starfish08/ColorFlip/assets/106678916/778c7139-51aa-42ab-980d-7e01daf5fd3d)  
+![Apres](https://github.com/Starfish08/ColorFlip/assets/106678916/33d2706b-7dc0-4bf9-9740-f27f8d64854d)
+
 
 ## Installation  
 - L'installation est assez simle, vous devez bien sûr avoir python installé sur votre appareil, et vous devez installer les requierments, soit un par un, soit tous d'un coup avec pip :   
@@ -30,7 +36,6 @@ L'application est programmé en python et l'interface graphique est basée sur p
 
 
 ## Ameliorations à venir  
-- Amelioration de l'interface graphique
 - Possiblilité d'ignorer des couleurs
 - Prévisualisation
 - Et bien plus encore!
